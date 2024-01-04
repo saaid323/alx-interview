@@ -14,7 +14,7 @@ def pascal_triangle(n):
     temp = original[-1]
     emp = []
     n = n - 2
-    for i in range(n):
+    for _ in range(n):
         for i in range(len(temp)):
             if len(temp) - 1 > i:
                 emp.append(temp[i] + temp[i + 1])
