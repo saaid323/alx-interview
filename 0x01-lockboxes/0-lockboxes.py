@@ -4,12 +4,6 @@
 
 def canUnlockAll(boxes):
     '''determines if all the boxes can be opened.'''
-    if len(boxes) == 1:
-        return True
-    if len(boxes) == 0:
-        return False
-    if type(boxes) is not list:
-        return False
     dic = {0: boxes[0]}
     keys = [boxes[0]]
     for i in keys:
