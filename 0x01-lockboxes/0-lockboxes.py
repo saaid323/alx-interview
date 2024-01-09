@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     keys = [boxes[0]]
     for i in keys:
         for j in i:
-            if j not in dic:
+            if j not in dic and j < len(boxes):
                 dic[j] = boxes[j]
                 keys.append(boxes[j])
     if len(keys) == len(boxes):
