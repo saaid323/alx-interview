@@ -2,7 +2,7 @@
 '''script that reads stdin line by line and computes metrics'''
 import sys
 
-codes = {}
+codes = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
 size = []
 store = []
 
@@ -11,9 +11,7 @@ try:
     for line in sys.stdin:
         code = line.split()[-2]
         last = line.split()[-1]
-        if code not in codes:
-            codes[code] = 1
-        else:
+        if code in codes.keys():
             codes[code] += 1
         store.append(code)
         size.append(int(last))
