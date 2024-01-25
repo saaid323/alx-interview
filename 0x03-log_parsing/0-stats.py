@@ -6,8 +6,9 @@ codes = {}
 size = []
 store = []
 
-for line in sys.stdin:
-    try:
+
+try:
+    for line in sys.stdin:
         code = int(line.split()[-2])
         last = line.split()[-1]
         if code not in codes:
@@ -20,8 +21,7 @@ for line in sys.stdin:
             print(f'File size: {sum(size)}')
             for k, v in sorted(codes.items()):
                 print(f'{k}: {v}')
-    except KeyboardInterrupt:
-        print('HEllo')
-        print(f'File size: {sum(size)}')
-        for k, v in sorted(codes.items()):
-            print(f'{k}: {v}')
+except KeyboardInterrupt:
+    print(f'File size: {sum(size)}')
+    for k, v in sorted(codes.items()):
+        print(f'{k}: {v}')
