@@ -16,7 +16,10 @@ try:
         else:
             codes[code] += 1
         store.append(code)
-        size += int(last)
+        try:
+            size += int(last)
+        except ValueError:
+            pass
         if len(store) % 10 == 0:
             print(f'File size: {size}')
             for k, v in sorted(codes.items()):
