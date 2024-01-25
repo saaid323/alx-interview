@@ -5,11 +5,11 @@ import sys
 codes = {}
 size = 0
 store = []
-status_code = [200, 301, 400, 401, 403, 404, 405, 500]
+status_code = ['200', '301', '400', '401', '403', '404', '405', '500']
 
 try:
     for line in sys.stdin:
-        code = int(line.split()[-2])
+        code = line.split()[-2]
         last = line.split()[-1]
         if code in status_code and codes.get(code, 0) == 0:
             codes[code] = 1
@@ -31,3 +31,4 @@ except KeyboardInterrupt:
     print(f'File size: {size}')
     for k, v in sorted(codes.items()):
             print(f'{k}: {v}')
+    raise
