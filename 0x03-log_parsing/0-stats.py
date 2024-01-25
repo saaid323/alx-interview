@@ -19,7 +19,7 @@ try:
         try:
             size += int(last)
         except (ValueError, TypeError):
-            pass
+            continue
         if len(store) % 10 == 0:
             print(f'File size: {size}')
             for k, v in sorted(codes.items()):
