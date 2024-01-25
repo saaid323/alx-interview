@@ -11,7 +11,7 @@ try:
     for line in sys.stdin:
         code = int(line.split()[-2])
         last = line.split()[-1]
-        if code not in codes:
+        if code in status_code and codes.get(code, 0) == 0:
             codes[code] = 1
         else:
             codes[code] += 1
