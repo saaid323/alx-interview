@@ -21,6 +21,9 @@ try:
             print(f'File size: {size}')
             for k, v in sorted(codes.items()):
                     print(f'{k}: {v}')
+    print(f'File size: {size}')
+    for k, v in sorted(codes.items()):
+        print(f'{k}: {v}')
 except KeyboardInterrupt:
     print(f'File size: {size}')
     for k, v in sorted(codes.items()):
