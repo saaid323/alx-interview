@@ -18,7 +18,7 @@ try:
         store.append(code)
         try:
             size += int(last)
-        except ValueError:
+        except (ValueError, IndexError):
             pass
         if len(store) % 10 == 0:
             print(f'File size: {size}')
