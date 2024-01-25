@@ -3,7 +3,7 @@
 import sys
 
 codes = {}
-size = []
+size = 0
 store = []
 status_code = ['200', '301', '400', '401', '403', '404', '405', '500']
 
@@ -16,12 +16,12 @@ try:
         else:
             codes[code] += 1
         store.append(code)
-        size.append(int(last))
+        size += int(last)
         if len(store) % 10 == 0:
-            print(f'File size: {sum(size)}')
+            print(f'File size: {size}')
             for k, v in sorted(codes.items()):
                     print(f'{k}: {v}')
 except KeyboardInterrupt:
-    print(f'File size: {sum(size)}')
+    print(f'File size: {size}')
     for k, v in sorted(codes.items()):
             print(f'{k}: {v}')
