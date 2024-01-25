@@ -20,8 +20,10 @@ try:
         if len(store) % 10 == 0:
             print(f'File size: {sum(size)}')
             for k, v in sorted(codes.items()):
-                print(f'{k}: {v}')
+                if v:
+                    print(f'{k}: {v}')
 except KeyboardInterrupt:
     print(f'File size: {sum(size)}')
     for k, v in sorted(codes.items()):
-        print(f'{k}: {v}')
+        if v:
+            print(f'{k}: {v}')
