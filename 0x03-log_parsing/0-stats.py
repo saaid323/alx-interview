@@ -4,8 +4,8 @@ import sys
 
 codes = {}
 size = []
-total = 1
-
+total = 0
+store = []
 
 for line in sys.stdin:
     try:
@@ -13,13 +13,14 @@ for line in sys.stdin:
         last = line.split()[-1]
         if code not in codes:
             codes[code] = 1
-        codes[code] += 1
+        else:
+            codes[code] += 1
+        store.append(code)
         size.append(int(last))
-        if total % 10 == 0:
+        if len(store) % 10 == 0:
             print(f'File size: {sum(size)}')
             for k, v in sorted(codes.items()):
                 print(f'{k}: {v}')
-        total += 1
     except KeyboardInterrupt:
         print('HEllo')
         print(f'File size: {sum(size)}')
