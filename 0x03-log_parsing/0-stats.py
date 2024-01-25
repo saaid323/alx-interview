@@ -9,7 +9,7 @@ store = []
 
 try:
     for line in sys.stdin:
-        code = int(line.split()[-2])
+        code = line.split()[-2]
         last = line.split()[-1]
         if code not in codes:
             codes[code] = 1
