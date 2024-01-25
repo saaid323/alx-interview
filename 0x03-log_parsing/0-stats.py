@@ -4,12 +4,11 @@ import sys
 
 codes = {}
 size = []
-total = 0
 store = []
 
 for line in sys.stdin:
     try:
-        code = line.split()[-2]
+        code = int(line.split()[-2])
         last = line.split()[-1]
         if code not in codes:
             codes[code] = 1
@@ -26,4 +25,3 @@ for line in sys.stdin:
         print(f'File size: {sum(size)}')
         for k, v in sorted(codes.items()):
             print(f'{k}: {v}')
-        continue
