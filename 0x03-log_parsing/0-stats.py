@@ -9,6 +9,9 @@ status_code = ['200', '301', '400', '401', '403', '404', '405', '500']
 
 try:
     for line in sys.stdin:
+        print(line, len(line.split()))
+        if len(line.split()) < 9:
+            continue
         code = line.split()[-2]
         last = line.split()[-1]
         if code in status_code and codes.get(code, 0) == 0:
@@ -16,10 +19,7 @@ try:
         else:
             codes[code] += 1
         store.append(code)
-        try:
-            size += int(last)
-        except (ValueError, TypeError):
-            continue
+        size += int(last)
         if len(store) % 10 == 0:
             print(f'File size: {size}')
             for k, v in sorted(codes.items()):
@@ -31,4 +31,3 @@ except KeyboardInterrupt:
     print(f'File size: {size}')
     for k, v in sorted(codes.items()):
             print(f'{k}: {v}')
-    raise
