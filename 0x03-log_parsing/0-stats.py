@@ -13,9 +13,9 @@ try:
             continue
         try:
             code = int(line.split()[-2])
+            last = int(line.split()[-1])
         except ValueError:
             continue
-        last = line.split()[-1]
         if code in status_code and codes.get(code, 0) == 0:
             codes[code] = 1
         else:
