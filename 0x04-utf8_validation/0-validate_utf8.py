@@ -13,8 +13,8 @@ def validUTF8(data):
                 return False
             remaining -= 1
         else:
-            if num >> 7 == 0:
-                remaining = 0
+            if num >> 7 != 0:
+                return False
             elif num >> 5 == 0b110:
                 remaining = 1
             elif num >> 4 == 0b1110:
