@@ -56,7 +56,6 @@ def print_solutions(n_3):
         print(solution)
 
 
-
 if len(sys.argv) != 2:
     print("Usage: nqueens N")
     sys.exit(1)
