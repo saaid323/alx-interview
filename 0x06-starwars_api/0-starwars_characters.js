@@ -8,8 +8,18 @@ request(url, function (error, response, body) {
   const content = JSON.parse(body);
   console.log(content.title);
   const characters = content.characters;
-  characters.map((name) => request(name, function (error, response, body) {
-    if (error) console.log(error);
-    console.log(JSON.parse(body).name);
-  }));
+  const names = characters.map((name) => {
+    return new Promise((resolve, reject) => {
+      request(name, function (error, response, body) {
+        if (error) {
+          console.log(error);
+          reject(error);
+        }
+        resolve(JSON.parse(body).name);
+      });
+    });
+  });
+  Promise.all(names).then((values) => {
+    console.log(values.join('\n'));
+  });
 });
