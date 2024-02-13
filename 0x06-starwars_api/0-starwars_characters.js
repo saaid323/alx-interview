@@ -19,7 +19,7 @@ request(url, function (error, response, body) {
       });
     });
   });
-  Promise.all(names).then((values) => {
-    console.log(values.join('\n'));
-  });
+  Promise.all(names).then((values) =>
+    console.log(values.join('\n'))
+  ).catch((error) => console.log(error));
 });
