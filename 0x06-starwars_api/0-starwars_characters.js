@@ -8,18 +8,16 @@ request(url, function (error, response, body) {
   const content = JSON.parse(body);
   console.log(content.title);
   const characters = content.characters;
-  const names = characters.map((name) => {
-    return new Promise((resolve, reject) => {
-      request(name, function (error, response, body) {
-        if (error) {
-          console.log(error);
-          reject(error);
-        }
-        resolve(JSON.parse(body).name);
-      });
-    });
-  });
-  Promise.all(names).then((values) =>
-    console.log(values.join('\n'))
-  ).catch((error) => console.log(error));
+  names(characters);
 });
+
+function names (characters, index = 0) {
+  request(characters[index], function (error, response, body) {
+    if (error) console.log(error);
+    const content = JSON.parse(body);
+    console.log(content.name);
+    if (characters.length - 1 > index) {
+      return names(characters, index + 1);
+    }
+  });
+}
