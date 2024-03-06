@@ -4,6 +4,8 @@
 
 def island_perimeter(grid):
     '''perimeter of grid island'''
+    if not grid or not grid[0]:
+        return 0
     perimeter = 0
     for i in range(len(grid)):
         for j in range(len(grid[0])):
